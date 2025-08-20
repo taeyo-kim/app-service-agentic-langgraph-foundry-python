@@ -1,57 +1,45 @@
-# Project Name
+# Agentic Azure App Service app with LangGraph and Azure AI Foundry Agent Service
 
-(short, 1-3 sentenced, description of the project)
-
-## Features
-
-This project framework provides the following features:
-
-* Feature 1
-* Feature 2
-* ...
+This repository demonstrates how to build a modern FatAPI web application that integrates with both Azure AI Foundry Agents and LangGraph Agents. It provides a simple CRUD task list and two interactive chat agents.
 
 ## Getting Started
 
-### Prerequisites
+See [Tutorial: Build an agentic web app in Azure App Service with LangGraph or Azure AI Foundry Agent Service (Python)](https://learn.microsoft.com/azure/app-service/tutorial-ai-agent-web-app-langgraph-foundry-python).
 
-(ideally very short, if any)
+## Features
 
-- OS
-- Library version
-- ...
+- **Task List**: Simple CRUD web app application.
+- **LangGraph Agent**: Chat with an agent powered by LangGraph.
+- **Azure AI Foundry Agent**: Chat with an agent powered by Azure AI Foundry Agent Service.
+- **OpenAPI Schema**: Enables integration with Azure AI Foundry agents.
 
-### Installation
+## Project Structure
 
-(ideally very short)
-
-- npm install [package name]
-- mvn install
-- ...
-
-### Quickstart
-(Add steps to get up and running quickly)
-
-1. git clone [repository clone url]
-2. cd [repository name]
-3. ...
-
-
-## Demo
-
-A demo app is included to show how to use the project.
-
-To run the demo, follow these steps:
-
-(Add steps to start up the demo)
-
-1.
-2.
-3.
-
-## Resources
-
-(Any additional resources or related projects)
-
-- Link to supporting information
-- Link to similar sample
-- ...
+```
+.devcontainer/
+└── devcontainer.json            # Dev container configuration for VS Code
+infra/
+├── main.bicep                   # Bicep IaC template
+├── main.parameters.json         # Parameters for Bicep deployment
+public/
+└── index.html                   # React frontend
+src/
+├── __init__.py
+├── app.py                       # Main FastAPI application
+├── azure.yaml                   # Azure Developer CLI config
+├── agents/                      # AI agent implementations
+│   ├── __init__.py
+│   ├── foundry_task_agent.py    # Azure AI Foundry agent
+│   └── langgraph_task_agent.py  # LangGraph agent
+├── models/                      # Pydantic models for data validation
+│   └── __init__.py
+├── routes/                      # API route definitions
+│   ├── __init__.py
+│   └── api.py                   # Task and chat endpoints
+└── services/                    # Business logic services
+    ├── __init__.py
+    └── task_service.py          # Task CRUD operations with SQLite
+tasks.db                         # SQLite database file
+requirements.txt                 # Python dependencies
+README.md                        # Project documentation
+```
